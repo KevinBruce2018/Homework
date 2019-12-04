@@ -1,5 +1,8 @@
 # Homework
-平时一些大作业的代码
-<br>restaurant.c这个文件是一个c语言的点餐系统
-<br>Calc.java和Display.java是一个简单的计算器程序
-<br>几个txt文件和main.cpp是一个数据结构作业，用于设计校园导航系统
+河北大学网络空间安全与计算机学院部分大作业代码
+
+不同的作业请访问不同的目录
+<br>c语言与数据结构文件夹中，restaurant.c这个文件是一个c语言的点餐系统（菜单文件缺失，仅供参考）。几个txt文件和main.cpp是一个数据结构作业，用于设计校园导航系统。
+<br>Java作业中Calc.java和Display.java是一个简单的计算器程序。
+<br>计算机网络的作业是一个网络协议分析器
+<br>计算机组成原理的作业是设计指令，本人设计了pop、push、cmp和jz指令。
