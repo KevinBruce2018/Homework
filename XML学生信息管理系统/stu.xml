@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student>
+        <name>小明</name>
+        <sex>男</sex>
+        <id>1</id>
+        <age>21</age>
+        <major>信息安全</major>
+    </student>
+    <student>
+        <name>小李</name>
+        <sex>男</sex>
+        <id>2</id>
+        <age>21</age>
+        <major>计算机科学</major>
+    </student>
+</students>
