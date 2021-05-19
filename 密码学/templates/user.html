@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/assets/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="icon" href="/favicon.ico">
+    <title>个人中心</title>
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header custom-header">
+            
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item slide-sidebar" lay-unselect>
+                   
+                </li>
+            </ul>
+
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="/logout">欢迎{{username}}！| 退出登录</a>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="layui-side custom-admin">
+            <div class="layui-side-scroll">
+
+                <div class="custom-logo">
+                    <img src="/assets/images/logo.png" alt=""/>
+                    <h1>网盘系统</h1>
+                </div>
+                <ul id="Nav" class="layui-nav layui-nav-tree">
+                    <li class="layui-nav-item">
+                        <a href="/uploadpage">
+                            <i class="layui-icon">&#xe609;</i>
+                            
+                            <em>上传</em>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/checkpage">
+                            <i class="layui-icon">&#xe857;</i>
+                            <em>校验</em>
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/resetpwd">
+                            <i class="layui-icon">&#xe612;</i>
+                            <em>修改密码</em>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="layui-body">
+             <div class="layui-tab app-container" lay-allowClose="true" lay-filter="tabs">
+                <!--<ul id="appTabs" class="layui-tab-title custom-tab">
+                </ul>
+            -->
+                <p style="margin-top: 16px;margin-left: 15px;">个人网盘系统</p>
+                <div id="appTabPage" class="layui-tab-content">
+
+                    <!--有点尴尬-->
+                    <div class="layui-form layui-border-box layui-table-view" lay-filter="LAY-table-1">
+                        <div class="layui-table-box">
+                        <div class="layui-table-header">
+                        <table cellspacing="0" cellpadding="0" border="0" class="layui-table"  lay-even="">
+                        <thead>
+                            <tr>
+                                <th data-field="id" style="width: 113px;">
+                                <div class="layui-table-cell laytable-cell-1-id">
+                                    <span>ID   </span>
+
+                                </div>
+                                </th>
+                                <th data-field="username" style="width: 300px;">
+                                    <div class="layui-table-cell laytable-cell-1-username">
+                                        <span>文件名</span>
+                                    </div>
+                                </th>
+                                <th data-field="email"  style="width: 141px;">
+                                    <div class="layui-table-cell laytable-cell-1-email">
+                                        <span>文件大小</span>
+                                    </div>
+                                </th>
+                                <th data-field="sign"  style="width: 135px;">
+                                    <div class="layui-table-cell laytable-cell-1-sign">
+                                        <span>文件路径</span>
+                                    </div>
+                                </th>
+                                <th data-field="sex" style="width: 338px;">
+                                    <div class="layui-table-cell laytable-cell-1-sex">
+                                        <span>HASH值</span>
+                                    </div>
+                                </th>
+                                <th data-field="city">
+                                    <div class="layui-table-cell laytable-cell-1-city">
+                                        <span>操作&emsp;&emsp;&emsp;&emsp;</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        </table>
+                    </div>
+                    
+                    
+                    <div class="layui-table-body layui-table-main">
+                        <table cellspacing="0" cellpadding="0" border="0" class="layui-table"  lay-even="">
+                            <tbody>
+                                {% for i in mess %}
+                                <tr data-index="0" class="">
+                                <td data-field="id" style="width: 180px;">
+                                    <div class="layui-table-cell laytable-cell-1-id">{{i[0]}}</div>
+                                </td>
+                                <td data-field="username" style="width: 240px;">
+                                    <div class="layui-table-cell laytable-cell-1-username">{{i[1]}}</div>
+                                </td>
+                                <td data-field="email"  style="width: 220px;">
+                                    <div class="layui-table-cell laytable-cell-1-email">{{i[2]}}</div>
+                                </td>
+                                <td data-field="sign" style="width: 220px;">
+                                    <div class="layui-table-cell laytable-cell-1-sign">{{i[3]}}</div>
+                                </td>
+                                <td data-field="sex" style="width: 220px;">
+                                    <div class="layui-table-cell laytable-cell-1-sex">{{i[4]}}</div>
+                                </td>
+                                <td data-field="city" style="width: 180px;">
+                                    <input type="hidden" value="{{i[5]}}" id="links"/>
+                                    <div class="layui-table-cell laytable-cell-1-city">
+                                        <a href="{{i[6]}}">删除|</a>
+                                        <a href="{{i[5]}}">下载|</a>
+                                        <script language="javascript">
+                                            function copyUrl()
+                                            {
+                                                alert("您的分享链接为"+document.getElementById('links').attributes['value'].nodeValue);
+                                            }
+                                            </script>
+                                        <a href="#" onclick="copyUrl()">分享</a>
+
+                                    
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        
+
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <center><p>CopyRight ©️ Create by kevinbruce2018</p></center>
+        </div>
+
+        <div class="mobile-mask"></div>
+    </div>
+    <script src="/assets/layui.js"></script>
+    <script src="/assets/js/index.js" data-main="home"></script>
+</body>
+</html>
